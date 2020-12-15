@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../models/task.dart';
 import './task_list.dart';
 import './date.dart';
+import './new_task.dart';
 
 class TaskPage extends StatefulWidget {
   @override
@@ -55,20 +56,44 @@ class _TaskPageState extends State<TaskPage> {
     ),
   ];
 
+  void _addNewTask(String taskTitle, String taskDescription, String taskTag) {
+    final newTask = Task(
+      title: taskTitle,
+      description: taskDescription,
+      date: DateTime.now(),
+      time: DateTime.now(),
+      tag: taskTag,
+    );
+
+    setState(() {
+      _userTasks.add(newTask);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Date(),
-          TaskList(_userTasks),
-        ],
+      appBar: AppBar(
+        elevation: 0,
+      ),
+      body: Container(
+        child: Column(
+          children: [
+            Date(),
+            TaskList(_userTasks),
+          ],
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         backgroundColor: Theme.of(context).primaryColor,
         child: Icon(Icons.add),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => NewTask(_addNewTask)),
+          );
+        },
       ),
     );
   }
