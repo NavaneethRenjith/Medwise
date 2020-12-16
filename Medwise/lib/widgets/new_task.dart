@@ -46,7 +46,14 @@ class _NewTaskState extends State<NewTask> {
   void _submitData() {
     final enteredTitle = _titleController.text;
     final enteredDesc = _descController.text;
-    final enteredTag = _selectedTag;
+
+    if (enteredTitle.isEmpty || _selectedDate == null || _selectedTime == null)
+      return;
+
+    widget.addTask(
+        enteredTitle, enteredDesc, _selectedDate, _selectedTime, _selectedTag);
+
+    Navigator.pop(context);
   }
 
   @override
@@ -150,7 +157,7 @@ class _NewTaskState extends State<NewTask> {
                             style: Theme.of(context).textTheme.subtitle1,
                           )
                         : Text(
-                            'Format time here',
+                            _selectedTime.format(context),
                             style: Theme.of(context).textTheme.subtitle1,
                           ),
                   ),
@@ -213,7 +220,7 @@ class _NewTaskState extends State<NewTask> {
                   Container(
                     alignment: Alignment.centerRight,
                     child: RaisedButton(
-                      onPressed: () {},
+                      onPressed: _submitData,
                       child: Text(
                         'Add Task',
                       ),

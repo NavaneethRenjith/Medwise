@@ -16,52 +16,43 @@ class _TaskPageState extends State<TaskPage> {
       title: 'Before Food Medicine',
       description: 'xyz..25',
       date: DateTime.now(),
-      time: DateTime.now(),
+      time: TimeOfDay.now(),
       tag: 'medicine',
+      taskDone: false,
     ),
     Task(
       title: 'Evening Walk 2km',
       description: 'abcdefg',
       date: DateTime.now(),
-      time: DateTime.now(),
+      time: TimeOfDay.now(),
       tag: 'exercise',
+      taskDone: false,
     ),
     Task(
       title: 'Evening Walk 2km',
       description: 'abcdefg',
       date: DateTime.now(),
-      time: DateTime.now(),
+      time: TimeOfDay.now(),
       tag: 'exercise',
+      taskDone: false,
     ),
     Task(
       title: 'Evening Walk 2km',
       description: 'abcdefg',
       date: DateTime.now(),
-      time: DateTime.now(),
+      time: TimeOfDay.now(),
       tag: 'exercise',
-    ),
-    Task(
-      title: 'Evening Walk 2km',
-      description: 'abcdefg',
-      date: DateTime.now(),
-      time: DateTime.now(),
-      tag: 'exercise',
-    ),
-    Task(
-      title: 'Evening Walk 2km',
-      description: 'abcdefg',
-      date: DateTime.now(),
-      time: DateTime.now(),
-      tag: 'exercise',
+      taskDone: false,
     ),
   ];
 
-  void _addNewTask(String taskTitle, String taskDescription, String taskTag) {
+  void _addNewTask(String taskTitle, String taskDescription, DateTime taskDate,
+      TimeOfDay taskTime, String taskTag) {
     final newTask = Task(
       title: taskTitle,
       description: taskDescription,
-      date: DateTime.now(),
-      time: DateTime.now(),
+      date: taskDate,
+      time: taskTime,
       tag: taskTag,
     );
 
@@ -69,6 +60,14 @@ class _TaskPageState extends State<TaskPage> {
       _userTasks.add(newTask);
     });
   }
+
+  // List<Task> get _sortUserTasks{
+  //   return {
+  //     _userTasks.sort(
+  //       (a, b) => a.time.format(context).compareTo((b.time.format(context))));
+  //   return _userTasks;
+  //   };
+  // }
 
   @override
   Widget build(BuildContext context) {

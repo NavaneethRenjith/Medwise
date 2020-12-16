@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 import '../models/task.dart';
 
@@ -13,9 +12,7 @@ class TaskList extends StatefulWidget {
 }
 
 class _TaskListState extends State<TaskList> {
-  var done = false; // initially task incomplete, so circle not filled
-  //List<bool> userTaskDone = [false];
-
+  var done = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -48,8 +45,7 @@ class _TaskListState extends State<TaskList> {
                             style: Theme.of(context).textTheme.subtitle2,
                           ),
                           Text(
-                            DateFormat.jm()
-                                .format(widget.displayedTasks[index].time),
+                            widget.displayedTasks[index].time.format(context),
                             style: Theme.of(context).textTheme.subtitle1,
                           ),
                         ],
