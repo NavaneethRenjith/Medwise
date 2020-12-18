@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../models/task.dart';
-import './task_list.dart';
-import './date.dart';
+import '../widgets/task_list.dart';
+import '../widgets/date.dart';
 import './new_task.dart';
 
 class TaskPage extends StatefulWidget {
