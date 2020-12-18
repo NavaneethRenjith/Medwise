@@ -79,7 +79,7 @@ class _TaskPageState extends State<TaskPage> {
         child: Column(
           children: [
             Date(),
-            TaskList(_userTasks),
+            Expanded(child: TaskList(_userTasks)),
           ],
         ),
       ),

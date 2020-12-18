@@ -1,3 +1,5 @@
+import 'package:Medwise/widgets/home_page.dart';
+
 import 'package:flutter/material.dart';
 
 import './widgets/task_page.dart';
@@ -48,21 +50,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Medwise'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          child: Text('Task Page'),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => TaskPage()),
-            );
-          },
-        ),
-      ),
-    );
+    return HomePage();
   }
 }
