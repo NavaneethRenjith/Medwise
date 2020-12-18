@@ -15,56 +15,58 @@ class _TaskListState extends State<TaskList> {
   var done = false;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 500,
-      child: ListView.builder(
-        physics: BouncingScrollPhysics(),
-        itemBuilder: (context, index) {
-          return Card(
-            margin: EdgeInsets.symmetric(
-              vertical: 10,
-              horizontal: 20,
-            ),
-            elevation: 5,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            widget.displayedTasks[index].title,
-                            style: Theme.of(context).textTheme.headline6,
-                          ),
-                          Text(
-                            widget.displayedTasks[index].description,
-                            style: Theme.of(context).textTheme.subtitle2,
-                          ),
-                          Text(
-                            widget.displayedTasks[index].time.format(context),
-                            style: Theme.of(context).textTheme.subtitle1,
-                          ),
-                        ],
+    return SingleChildScrollView(
+      child: Container(
+        height: 500,
+        child: ListView.builder(
+          physics: BouncingScrollPhysics(),
+          itemBuilder: (context, index) {
+            return Card(
+              margin: EdgeInsets.symmetric(
+                vertical: 10,
+                horizontal: 20,
+              ),
+              elevation: 5,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              widget.displayedTasks[index].title,
+                              style: Theme.of(context).textTheme.headline6,
+                            ),
+                            Text(
+                              widget.displayedTasks[index].description,
+                              style: Theme.of(context).textTheme.subtitle2,
+                            ),
+                            Text(
+                              widget.displayedTasks[index].time.format(context),
+                              style: Theme.of(context).textTheme.subtitle1,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  FlatButton(
-                      onPressed: () {
-                        setState(() {
-                          done = !done;
-                        });
-                      },
-                      child: done ? circleDone() : circleNotDone()),
-                ],
+                    FlatButton(
+                        onPressed: () {
+                          setState(() {
+                            done = !done;
+                          });
+                        },
+                        child: done ? circleDone() : circleNotDone()),
+                  ],
+                ),
               ),
-            ),
-          );
-        },
-        itemCount: widget.displayedTasks.length,
+            );
+          },
+          itemCount: widget.displayedTasks.length,
+        ),
       ),
     );
   }
