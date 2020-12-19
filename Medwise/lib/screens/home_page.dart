@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../screens/task_page.dart';
-
-import 'package:flutter_svg/flutter_svg.dart';
+import './connect_page.dart';
+import './profile_page.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -19,7 +20,10 @@ class HomePage extends StatelessWidget {
               icon: Icon(
                 Icons.account_circle_sharp,
               ),
-              onPressed: () {}),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ProfilePage()));
+              }),
         ],
       ),
       backgroundColor: Color(0xfff6f6f9),
@@ -111,8 +115,14 @@ class HomePage extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0),
                         ),
-                        color: Color(0xffff8718),
-                        onPressed: () {},
+                        color: Colors.green,
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ConnectPage()),
+                          );
+                        },
                         child: Container(
                           width: 140,
                           height: 70,

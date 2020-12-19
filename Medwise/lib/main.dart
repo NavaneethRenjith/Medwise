@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'Medwise',
       theme: ThemeData(
         primaryColor: Color.fromRGBO(41, 98, 255, 1),
+        accentColor: Colors.green,
         textTheme: ThemeData.light().textTheme.copyWith(
               headline6: TextStyle(
                 fontSize: 18,
