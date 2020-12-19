@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../screens/task_page.dart';
 
+import 'package:flutter_svg/flutter_svg.dart';
+
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -78,10 +80,13 @@ class HomePage extends StatelessWidget {
                 height: 10,
               ),
               // !Svg Here
+
               Container(
-                alignment: Alignment.topRight,
-                height: 150,
-                child: Image.asset('assets/images/doctor_image.png'),
+                height: 200,
+                child: SvgPicture.asset(
+                  'assets/images/doctor_image.svg',
+                  alignment: Alignment.topRight,
+                ),
               ),
               Container(
                 alignment: Alignment.centerLeft,
@@ -93,6 +98,8 @@ class HomePage extends StatelessWidget {
                   style: TextStyle(fontSize: 22),
                 ),
               ),
+
+              SizedBox(height: 10),
               Container(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
