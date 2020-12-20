@@ -16,28 +16,32 @@ class _ConnectPageState extends State<ConnectPage> {
       specialization: 'Physician',
       qualification: 'MBBS',
       rating: 4.2,
-      description: 'X years of experience. Currently working at blah blah blah',
+      description:
+          'X years of experience. Currently working at blah blah blah. Previously worked at blah blah, xyzxyz and abcbca.',
     ),
     Doctor(
       name: 'Dr Bhasi',
       specialization: 'Physician',
       qualification: 'MBBS',
       rating: 4.8,
-      description: 'Z years of experience. Currently working at blah blah blah',
+      description:
+          'Z years of experience. Currently working at blah blah blah. Previously worked at blah blah, xyzxyz and abcbca.',
     ),
     Doctor(
       name: 'Dr Grace',
       specialization: 'Pediatrician',
       qualification: 'MBBS',
       rating: 4.4,
-      description: 'X years of experience. Currently working at blah blah blah',
+      description:
+          'X years of experience. Currently working at blah blah blah. Previously worked at blah blah, xyzxyz and abcbca.',
     ),
     Doctor(
       name: 'Dr Mushtaq',
       specialization: 'Pediatrician',
       qualification: 'MBBS',
       rating: 4.4,
-      description: 'X years of experience. Currently working at blah blah blah',
+      description:
+          'X years of experience. Currently working at blah blah blah. Previously worked at blah blah, xyzxyz and abcbca.',
     ),
   ];
 

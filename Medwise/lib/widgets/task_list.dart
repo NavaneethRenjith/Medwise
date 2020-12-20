@@ -17,7 +17,7 @@ class _TaskListState extends State<TaskList> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        height: 500,
+        height: MediaQuery.of(context).size.height / 1.5,
         child: ListView.builder(
           physics: BouncingScrollPhysics(),
           itemBuilder: (context, index) {
@@ -57,13 +57,6 @@ class _TaskListState extends State<TaskList> {
                           ),
                         ),
                       ),
-                      // FlatButton(
-                      //     onPressed: () {
-                      //       setState(() {
-                      //         done = !done;
-                      //       });
-                      //     },
-                      //     child: done ? circleDone() : circleNotDone()),
                       IconButton(
                           icon: !done
                               ? Icon(

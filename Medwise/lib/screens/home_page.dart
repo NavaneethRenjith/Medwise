@@ -59,7 +59,6 @@ class HomePage extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    // border: Border.all(color: Colors.black),
                     color: Colors.white),
                 child: TextField(
                   style: TextStyle(fontSize: 16, color: Colors.grey[600]),
@@ -79,14 +78,11 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
-
               SizedBox(
                 height: 10,
               ),
-              // !Svg Here
-
               Container(
-                height: 200,
+                height: MediaQuery.of(context).size.height / 4.5,
                 child: SvgPicture.asset(
                   'assets/images/doctor_image.svg',
                   alignment: Alignment.topRight,
@@ -95,14 +91,13 @@ class HomePage extends StatelessWidget {
               Container(
                 alignment: Alignment.centerLeft,
                 margin: EdgeInsets.symmetric(
-                  vertical: 20,
+                  vertical: 25,
                 ),
                 child: Text(
                   "How can I help you?",
                   style: TextStyle(fontSize: 22),
                 ),
               ),
-
               SizedBox(height: 10),
               Container(
                 child: Row(
