@@ -16,7 +16,7 @@ class DoctorsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 500,
+      height: MediaQuery.of(context).size.height * .5,
       margin: EdgeInsets.only(top: 16),
       child: ListView.builder(
           itemCount: _allDoctorsList.length,

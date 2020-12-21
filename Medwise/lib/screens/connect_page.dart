@@ -126,7 +126,7 @@ class _ConnectPageState extends State<ConnectPage> {
                       ],
                     ),
                   ),
-                  DoctorsList(_allDoctorsList),
+                  SingleChildScrollView(child: DoctorsList(_allDoctorsList)),
                 ],
               ),
             )

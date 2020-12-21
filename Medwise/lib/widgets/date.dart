@@ -12,7 +12,7 @@ class _DateState extends State<Date> {
     showDatePicker(
       context: context,
       initialDate: DateTime.now(),
-      firstDate: DateTime.now(),
+      firstDate: DateTime(1990),
       lastDate: DateTime(2022),
     ).then((pickedDate) {
       if (pickedDate == null) return;

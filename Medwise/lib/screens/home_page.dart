@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../screens/task_page.dart';
 import './connect_page.dart';
 import './profile_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -24,6 +25,33 @@ class HomePage extends StatelessWidget {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => ProfilePage()));
               }),
+          DropdownButton(
+            icon: Icon(
+              Icons.more_vert,
+              color: Theme.of(context).primaryIconTheme.color,
+            ),
+            items: [
+              DropdownMenuItem(
+                child: Container(
+                  child: Row(
+                    children: [
+                      Icon(Icons.exit_to_app, color: Colors.black),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      Text("Logout")
+                    ],
+                  ),
+                ),
+                value: 'logout',
+              )
+            ],
+            onChanged: (itemIdentifier) {
+              if (itemIdentifier == 'logout') {
+                FirebaseAuth.instance.signOut();
+              }
+            },
+          ),
         ],
       ),
       backgroundColor: Color(0xfff6f6f9),
