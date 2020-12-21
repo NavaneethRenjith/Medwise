@@ -17,50 +17,63 @@ class _TaskListState extends State<TaskList> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        height: 500,
+        height: MediaQuery.of(context).size.height / 1.5,
         child: ListView.builder(
           physics: BouncingScrollPhysics(),
           itemBuilder: (context, index) {
-            return Card(
-              margin: EdgeInsets.symmetric(
-                vertical: 10,
-                horizontal: 20,
-              ),
-              elevation: 5,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              widget.displayedTasks[index].title,
-                              style: Theme.of(context).textTheme.headline6,
-                            ),
-                            Text(
-                              widget.displayedTasks[index].description,
-                              style: Theme.of(context).textTheme.subtitle2,
-                            ),
-                            Text(
-                              widget.displayedTasks[index].time.format(context),
-                              style: Theme.of(context).textTheme.subtitle1,
-                            ),
-                          ],
+            return AnimatedOpacity(
+              opacity: !done ? 1 : 0.4,
+              duration: Duration(milliseconds: 200),
+              child: Card(
+                margin: EdgeInsets.symmetric(
+                  vertical: 10,
+                  horizontal: 20,
+                ),
+                elevation: 5,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                widget.displayedTasks[index].title,
+                                style: Theme.of(context).textTheme.headline6,
+                              ),
+                              Text(
+                                widget.displayedTasks[index].description,
+                                style: Theme.of(context).textTheme.subtitle2,
+                              ),
+                              Text(
+                                widget.displayedTasks[index].time
+                                    .format(context),
+                                style: Theme.of(context).textTheme.subtitle1,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    FlatButton(
-                        onPressed: () {
-                          setState(() {
-                            done = !done;
-                          });
-                        },
-                        child: done ? circleDone() : circleNotDone()),
-                  ],
+                      IconButton(
+                          icon: !done
+                              ? Icon(
+                                  Icons.lens_outlined,
+                                  color: Theme.of(context).primaryColor,
+                                )
+                              : Icon(
+                                  Icons.check_circle,
+                                  color: Theme.of(context).primaryColor,
+                                ),
+                          onPressed: () {
+                            setState(() {
+                              done = !done;
+                            });
+                          })
+                    ],
+                  ),
                 ),
               ),
             );
@@ -70,38 +83,4 @@ class _TaskListState extends State<TaskList> {
       ),
     );
   }
-
-  circleNotDone() {
-    return Container(
-      height: 30,
-      width: 30,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        border: Border.all(
-          color: Theme.of(context).primaryColor,
-          width: 2,
-        ),
-      ),
-    );
-  }
-
-  circleDone() {
-    return CircleAvatar(
-      radius: 15,
-      child: Padding(
-        padding: EdgeInsets.all(8),
-        child: Image.asset('assets/images/tick.png'),
-      ),
-    );
-  }
-  // return Container(
-  //   height: 30,
-  //   width: 30,
-  //   padding: EdgeInsets.all(8),
-  //   decoration: BoxDecoration(
-  //     shape: BoxShape.circle,
-  //     color: Colors.blue,
-  //   ),
-  //   child: Image.asset('assets/images/tick.png'),
-  // );
 }
