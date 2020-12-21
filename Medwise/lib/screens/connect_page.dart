@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/doctors_list.dart';
-import '../models/doctor.dart';
 
 class ConnectPage extends StatefulWidget {
   @override
@@ -10,36 +9,6 @@ class ConnectPage extends StatefulWidget {
 
 class _ConnectPageState extends State<ConnectPage> {
   var doctorCategory = 'All';
-  final List<Doctor> _allDoctorsList = [
-    Doctor(
-      name: 'Dr Jose',
-      specialization: 'Physician',
-      qualification: 'MBBS',
-      rating: 4.2,
-      description: 'X years of experience. Currently working at blah blah blah',
-    ),
-    Doctor(
-      name: 'Dr Bhasi',
-      specialization: 'Physician',
-      qualification: 'MBBS',
-      rating: 4.8,
-      description: 'Z years of experience. Currently working at blah blah blah',
-    ),
-    Doctor(
-      name: 'Dr Grace',
-      specialization: 'Pediatrician',
-      qualification: 'MBBS',
-      rating: 4.4,
-      description: 'X years of experience. Currently working at blah blah blah',
-    ),
-    Doctor(
-      name: 'Dr Mushtaq',
-      specialization: 'Pediatrician',
-      qualification: 'MBBS',
-      rating: 4.4,
-      description: 'X years of experience. Currently working at blah blah blah',
-    ),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -126,7 +95,7 @@ class _ConnectPageState extends State<ConnectPage> {
                       ],
                     ),
                   ),
-                  SingleChildScrollView(child: DoctorsList(_allDoctorsList)),
+                  SingleChildScrollView(child: DoctorsList()),
                 ],
               ),
             )

@@ -44,6 +44,22 @@ class _TaskPageState extends State<TaskPage> {
       tag: 'exercise',
       taskDone: false,
     ),
+    Task(
+      title: 'Evening Walk 2km',
+      description: 'abcdefg',
+      date: DateTime.now(),
+      time: TimeOfDay.now(),
+      tag: 'exercise',
+      taskDone: false,
+    ),
+    Task(
+      title: 'Evening Walk 2km',
+      description: 'abcdefg',
+      date: DateTime.now(),
+      time: TimeOfDay.now(),
+      tag: 'exercise',
+      taskDone: false,
+    ),
   ];
 
   void _addNewTask(String taskTitle, String taskDescription, DateTime taskDate,
