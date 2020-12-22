@@ -14,5 +14,5 @@ class Task {
       this.date,
       this.time,
       this.tag,
-      this.taskDone});
+      this.taskDone = false});
 }

@@ -12,7 +12,7 @@ class TaskList extends StatefulWidget {
 }
 
 class _TaskListState extends State<TaskList> {
-  var done = false;
+  // var done = false;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -21,6 +21,7 @@ class _TaskListState extends State<TaskList> {
         child: ListView.builder(
           physics: BouncingScrollPhysics(),
           itemBuilder: (context, index) {
+            var done = widget.displayedTasks[index].taskDone;
             return AnimatedOpacity(
               opacity: !done ? 1 : 0.4,
               duration: Duration(milliseconds: 200),
@@ -69,7 +70,8 @@ class _TaskListState extends State<TaskList> {
                                 ),
                           onPressed: () {
                             setState(() {
-                              done = !done;
+                              widget.displayedTasks[index].taskDone =
+                                  !widget.displayedTasks[index].taskDone;
                             });
                           })
                     ],
