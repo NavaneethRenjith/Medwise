@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../screens/task_page.dart';
 import './connect_page.dart';
 import './profile_page.dart';
+import './history_page.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -197,7 +198,13 @@ class HomePage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         color: Colors.white,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => HistoryPage()),
+                          );
+                        },
                         child: Container(
                           width: 140,
                           height: 70,
@@ -207,11 +214,11 @@ class HomePage extends StatelessWidget {
                             children: [
                               Icon(
                                 Icons.book,
-                                color: Color(0xffb83f87),
+                                color: Color(0xffFF8A5C),
                               ),
                               Text(
                                 "History",
-                                style: TextStyle(color: Color(0xffb83f87)),
+                                style: TextStyle(color: Color(0xffFF8A5C)),
                               )
                             ],
                           ),
@@ -240,11 +247,11 @@ class HomePage extends StatelessWidget {
                             children: [
                               Icon(
                                 Icons.leaderboard,
-                                color: Color(0xfff0002b),
+                                color: Color(0xffB83F87),
                               ),
                               Text(
                                 "Analysis",
-                                style: TextStyle(color: Color(0xfff0002b)),
+                                style: TextStyle(color: Color(0xffB83F87)),
                               )
                             ],
                           ),
