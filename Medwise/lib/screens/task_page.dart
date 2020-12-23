@@ -47,13 +47,6 @@ class _TaskPageState extends State<TaskPage> {
       time: TimeOfDay.now(),
       tag: 'exercise',
     ),
-    Task(
-      title: 'Take tablets',
-      description: 'After dinner',
-      date: DateTime.now(),
-      time: TimeOfDay.now(),
-      tag: 'medicine',
-    ),
   ];
 
   void _addNewTask(String taskTitle, String taskDescription, DateTime taskDate,
@@ -68,6 +61,14 @@ class _TaskPageState extends State<TaskPage> {
 
     setState(() {
       _userTasks.add(newTask);
+    });
+  }
+
+  void _deleteTask(String title) {
+    setState(() {
+      _userTasks.removeWhere((task) {
+        return task.title == title;
+      });
     });
   }
 
@@ -89,7 +90,7 @@ class _TaskPageState extends State<TaskPage> {
         child: Column(
           children: [
             Date(),
-            Expanded(child: TaskList(_userTasks)),
+            Expanded(child: TaskList(_userTasks, _deleteTask)),
           ],
         ),
       ),
