@@ -5,6 +5,7 @@ import '../screens/task_page.dart';
 import './connect_page.dart';
 import './profile_page.dart';
 import './history_page.dart';
+import '../screens/analysis_page.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -233,7 +234,13 @@ class HomePage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: RaisedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AnalysisPage()),
+                          );
+                        },
                         color: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0),
